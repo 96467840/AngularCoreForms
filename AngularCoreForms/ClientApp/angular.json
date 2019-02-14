@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ang-app": {
+    "AngularCoreForms": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ang-app",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ang-app:build"
+            "browserTarget": "AngularCoreForms:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ang-app:build:production"
+              "browserTarget": "AngularCoreForms:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ang-app:build"
+            "browserTarget": "AngularCoreForms:build"
           }
         },
         "test": {
@@ -108,7 +108,7 @@
         }
       }
     },
-    "ang-app-e2e": {
+    "AngularCoreForms-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -117,11 +117,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ang-app:serve"
+            "devServerTarget": "AngularCoreForms:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ang-app:serve:production"
+              "devServerTarget": "AngularCoreForms:serve:production"
             }
           }
         },
@@ -137,5 +137,5 @@
       }
     }
   },
-  "defaultProject": "ang-app"
+  "defaultProject": "AngularCoreForms"
 }
