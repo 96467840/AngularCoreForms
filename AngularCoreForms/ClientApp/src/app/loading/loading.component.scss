@@ -1,0 +1,48 @@
+.loader-back {
+  position: absolute;
+  width: 102%;
+  height: 100%;
+  background-color: #fff;
+  top: 0;
+  opacity: 0.5;
+  margin-left: -1%;
+  //margin-top:-1%;
+  //z-index: 10;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -20px;
+  margin-top: -20px;
+  //z-index: 10;
+}
+
+
+
+.loading-container {
+  text-align: center;
+}
+
+.svg-loader {
+  height: 20vmin;
+  padding: 3vmin 20vmin;
+  //vertical-align: top;
+}
+/*.svg-loader-50 {
+    height: 50px;
+    padding: 0;
+    display:block;
+    //vertical-align: top;
+}*/
+
+@for $n from 1 through 20 {
+  .svg-loader-#{$n*10} {
+    height: 10px*$n;
+    padding: 0;
+    display: block;
+    margin-left: -(5px*$n);
+    margin-top: -(5px*$n);
+  }
+}

@@ -1,3 +1,26 @@
-<form>
+
+<form *ngIf="data!=null">
   form works!
+  <table class='table' *ngIf="data">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Temp. (C)</th>
+        <th>Temp. (F)</th>
+        <th>Summary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let forecast of data">
+        <td>{{ forecast.dateFormatted }}</td>
+        <td>{{ forecast.temperatureC }}</td>
+        <td>{{ forecast.temperatureF }}</td>
+        <td>{{ forecast.summary }}</td>
+      </tr>
+    </tbody>
+  </table>
 </form>
+
+<button *ngIf="!isLoading" (click)="load()">refresh</button>
+
+<app-loading *ngIf="isLoading" showText="{{ data==null }}" size="{{ loaded ? 100 : 50 }}"></app-loading>

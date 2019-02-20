@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Loadable } from '../models';
 
@@ -6,7 +6,7 @@ import { Loadable } from '../models';
   selector: 'app-fetch-data',
   templateUrl: './fetch-data.component.html'
 })
-export class FetchDataComponent extends Loadable<WeatherForecast[]> {
+export class FetchDataComponent extends Loadable<WeatherForecast[]> implements OnInit {
   apiUrl: string = 'api/SampleData/WeatherForecasts';
   /*public forecasts: WeatherForecast[];
 
@@ -15,6 +15,14 @@ export class FetchDataComponent extends Loadable<WeatherForecast[]> {
       this.forecasts = result;
     }, error => console.error(error));
   }*/
+
+  ngOnInit() {
+    console.log('FetchDataComponent.ngOnInit()');
+    this.load();
+  }
+  ngOnDestroy() {
+    console.log('FetchDataComponent.ngOnDestroy()');
+  }
 }
 
 interface WeatherForecast {

@@ -12,7 +12,8 @@ export class FormComponent extends Loadable<iForm> implements OnInit {
   apiUrl: string = 'api/SampleData/WeatherForecasts';
 
   ngOnInit() {
-
+    console.log('FormComponent.ngOnInit()');
+    this.load();
   }
 
 }

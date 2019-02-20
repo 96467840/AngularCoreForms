@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AngularCoreForms.Controllers
@@ -9,14 +10,22 @@ namespace AngularCoreForms.Controllers
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
+        private IHostingEnvironment Env;
+        public SampleDataController(IHostingEnvironment env)
+        {
+            Env = env;
+        }
+
         private static string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
         [HttpGet("[action]")]
-        public IEnumerable<WeatherForecast> WeatherForecasts()
+        public async Task<IEnumerable<WeatherForecast>> WeatherForecasts()
         {
+            if (Env.IsDevelopment()) await Task.Delay(2000);
+
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

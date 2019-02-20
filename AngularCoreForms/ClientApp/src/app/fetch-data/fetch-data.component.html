@@ -2,8 +2,6 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
-<p *ngIf="!data"><em>Loading...</em></p>
-
 <table class='table' *ngIf="data">
   <thead>
     <tr>
@@ -22,3 +20,5 @@
     </tr>
   </tbody>
 </table>
+
+<app-loading *ngIf="isLoading" showText="{{ data==null }}" size="{{ loaded ? 100 : 50 }}"></app-loading>

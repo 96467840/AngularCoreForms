@@ -1,2 +1,2 @@
 export { iHash } from './Hash';
-export { Loadable } from './Loadable';
+export { Loadable, iError, ERROR_NETWORK, ERROR_UNKNOWN } from './Loadable';
